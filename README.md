@@ -1,24 +1,46 @@
-# README
+# Mock Youtube API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Getting Started
 
-Things you may want to cover:
+### 1. Clone the Repository
+Clone the repository to your local machine using the following command:
 
-* Ruby version
+```bash
+git clone https://github.com/savvychien/mock-youtube-backend.git
+cd mock-youtube-backend
+```
 
-* System dependencies
+### 2. Build and Start the Application
+Use Docker Compose to build and run the application along with Redis. Run the following command in the project root:
 
-* Configuration
+```bash
+docker-compose up --build
+```
 
-* Database creation
+### 3. Access the Application
+Once the containers are running, you can access the Rails application in your web browser at:
 
-* Database initialization
+```
+http://localhost:3000
+```
 
-* How to run the test suite
+### 4. Running Migrations
+To run the database migrations, you can execute the following command:
 
-* Services (job queues, cache servers, search engines, etc.)
+```bash
+docker-compose run web rails db:create db:migrate db:seed
+```
 
-* Deployment instructions
+### 5. Stopping the Application
+To stop the running application, press `CTRL + C` in the terminal where you started Docker Compose, or run:
 
-* ...
+```bash
+docker-compose down
+```
+
+## Configuration
+You may want to configure environment variables in a `.env` file. Create a file named `.env` in the root directory of your project and set your Redis URL:
+
+```plaintext
+REDIS_URL=redis://redis:6379/1
+```
