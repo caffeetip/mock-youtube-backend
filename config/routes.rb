@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :playlists
+
+  get "youtube_videos", to: "youtube_videos#index"
 end
